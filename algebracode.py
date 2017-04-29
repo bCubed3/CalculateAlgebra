@@ -1,14 +1,25 @@
 # Algebra Calculator Code
+import re
+
+# function to solve equations
+
+def solve_equation(equ):
+    # x = c
+    if(re.search(r"^[a-z] = \d+$", user_input)):
+        return re.search(r"^[a-z]", user_input).group() + " = " + re.search(r"\d+", user_input).group()
+    else:
+        print("There has been an error.")
 
 print("Welcome to bCubed's Algebra Calculator.")
 
-user_input = input()
+while True:
+    user_input = input()
 
-# test if input is an equation or an expression
+    # test if input is an equation or an expression
 
-if(user_input == "help"):
-    print("Help page to come.")
-elif("=" in user_input):
-    print("Equation")
-else:
-    print("Expression")
+    if(user_input == "help"):
+        print("Help page to come.")
+    elif("=" in user_input):
+        print(solve_equation(user_input))
+    else:
+        print("Expression")

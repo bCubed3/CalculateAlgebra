@@ -1,0 +1,12 @@
+Equations of the form (ax + b)(cx + d) = 0:
+(ax + b)(cx + d) = 0
+	-> Solve
+		Either (ax + b) = 0 or (cx + d) = 0
+			(ax + b) = 0
+				-> Solve
+					x = -b/a
+					return x
+			(cx + d) = 0
+				-> Solve
+					x = -d/c
+					return x

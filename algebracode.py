@@ -7,6 +7,13 @@ def solve_equation(equ):
     # x = c
     if(re.search(r"^[a-z] = \d+$", user_input)):
         return re.search(r"^[a-z]", user_input).group() + " = " + re.search(r"\d+", user_input).group()
+    # (ax + b)(cx + d) = 0
+    elif(re.search(r"^\([\+\-]?\d*[a-z] [\+\-] \d+\)\([\+\-]?\d*[a-z] [\+\-] \d+\) = 0$", user_input)):
+        #solve_equation(re.search(r"^\([\+\-]?\d*[a-z] [\+\-] \d+\)", user_input).group() + " = 0")
+        print("test 1")
+    # (ax + b) = 0
+    elif(re.search(r"^\([\+\-]?\d*[a-z] [\+\-] \d+\) = 0$", user_input)):
+        return "test"
     else:
         print("There has been an error.")
 

@@ -5,17 +5,20 @@ import re
 
 def solve_equation(equ):
     # x = c
-    if(re.search(r"^[a-z] = \d+$", user_input)):
-        return re.search(r"^[a-z]", user_input).group() + " = " + re.search(r"\d+", user_input).group()
+    if(re.search(r"^[a-z] = \d+\.?\d*$", user_input)):
+        return re.search(r"^[a-z]", user_input).group() + " = " + re.search(r"\d+\.?\d*", user_input).group()
+    # (ax + b) = 0
+    elif(re.search(r"^\(?[\+\-]?\d*[a-z] [\+\-] \d+\)? = 0$", user_input)):
+        return "test 0"
+    elif(re.search(r"^\d+[a-z] = [\+\-]?\d+$", user_input)):
+        return "test 2"
     # (ax + b)(cx + d) = 0
     elif(re.search(r"^\([\+\-]?\d*[a-z] [\+\-] \d+\)\([\+\-]?\d*[a-z] [\+\-] \d+\) = 0$", user_input)):
         #solve_equation(re.search(r"^\([\+\-]?\d*[a-z] [\+\-] \d+\)", user_input).group() + " = 0")
-        print("test 1")
-    # (ax + b) = 0
-    elif(re.search(r"^\([\+\-]?\d*[a-z] [\+\-] \d+\) = 0$", user_input)):
-        return "test"
+        return "test 1"
+    
     else:
-        print("There has been an error.")
+        return "There has been an error."
 
 print("Welcome to bCubed's Algebra Calculator.")
 
